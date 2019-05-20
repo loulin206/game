@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script>
+        function upload(input) {
+            //支持chrome IE10
+            if (window.FileReader) {
+                var file = input.files[0];
+                filename = file.name.split(".")[0];
+                var reader = new FileReader();
+                reader.onload = function() {
+                    var f = this.result;
+                    document.getElementById("aa").innerHTML = this.result;
+                    var tmp = f.split(/\n[0-9]+/);
+                    var question = new Array(100);
+                    var a = new Array(100);
+                    var b = new Array(100);
+                    var c = new Array(100);
+                    var d = new Array(100);
+                    for (var i = 0; i <= 99; i++) {
+
+                        var t = ((i + 1).toString() + tmp[i + 1]).split(/\n[A-Z]+/)
+
+                        question[i] = t[0];
+
+                        a[i] = "A" + t[1];
+
+
+                        b[i] = "B" + t[2];
+
+                        c[i] = "C" + t[3];
+
+
+                        if (t.length > 4)
+                            d[i] = "D" + t[4];
+
+                    }
+                    answer = new Array('C', 'B', 'B', 'B', 'A', 'A', 'B', 'C', 'D', 'A', 'B', 'A', 'B', 'A', 'B', 'B', 'B', 'A', 'A', 'B', 'A', 'C', 'C',
+                        'B', 'B', 'A', 'B', 'A', 'B', 'B', 'B', 'B', 'C', 'C', 'B', 'A', 'C', 'B', 'A', 'C', 'B', 'B', 'A', 'A', 'B', 'B', 'C', 'C', 'B', 'A',
+                        'C', 'A', 'C', 'B', 'B', 'B', 'A', 'A', 'B', 'C', 'B', 'A', 'A', 'C', 'C', 'B', 'C', 'B', 'C', 'B', 'D', 'C', 'D', 'C', 'A', 'A', 'B',
+                        'C', 'C', 'A', 'B', 'A', 'C', 'C', 'C', 'C', 'C', 'B', 'B', 'C', 'D', 'B', 'A', 'B', 'B', 'C', 'A', 'C', 'C', 'B')
+
+                }
+                reader.readAsText(file);
+            } else {
+                alert('error');
+            }
+        }
+    </script>
+    <title>嘻嘻</title>
+</head>
+
+<body>
+    <input type="file" onchange="upload(this)" />
+    <div id="aa">nmsl
+        <div>
+</body>
+
+</html>
