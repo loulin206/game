@@ -1,4 +1,4 @@
-# game5.9
+# game
 
 > A Vue.js project
 
